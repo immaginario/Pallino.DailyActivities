@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Pallino.DailyActivities.Model
 {
-    public class DailyActivity
+    public class DailyReport
     {
         public virtual int Id { get; set; }
         public virtual DateTime Date { get; set; }
 
-        public DailyActivity()
+        public DailyReport()
         {
             this.Date = DateTime.Today;
         }

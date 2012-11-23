@@ -7,11 +7,11 @@ using FluentNHibernate.Mapping;
 
 namespace Pallino.DailyActivities.Model.Mappings
 {
-    public class DailyActivityMapping: ClassMap<DailyActivity>
+    public class DailyReportMapping: ClassMap<DailyReport>
     {
-        public DailyActivityMapping()
+        public DailyReportMapping()
         {
-            Table("DailyActivities");
+            Table("DailyReports");
             Id(x => x.Id);
             Map(x => x.Date).Not.Nullable();
         }

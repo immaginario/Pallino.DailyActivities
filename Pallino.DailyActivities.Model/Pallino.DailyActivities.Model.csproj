@@ -50,8 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DailyActivity.cs" />
-    <Compile Include="Mappings\DailyActivityMapping.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="DailyReport.cs" />
+    <Compile Include="Mappings\CustomerMapping.cs" />
+    <Compile Include="Mappings\DailyReportMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

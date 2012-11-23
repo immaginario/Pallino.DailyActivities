@@ -22,16 +22,16 @@ namespace Pallino.DailyActivities.Tests
         public static FluentConfiguration BuildConfiguration()
         {
             return Fluently.Configure()
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<DailyActivityMapping>())
-                .Database(SQLiteConfiguration.Standard.InMemory());
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<DailyReportMapping>())
+                .Database(SQLiteConfiguration.Standard.InMemory().ShowSql());
         }
 
         public static ISession GetInMemorySession()
         {
             var session = Factory.OpenSession();
+            HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             new SchemaExport(Config.BuildConfiguration())
                 .Execute(false, true, false, session.Connection, null);
-            //HibernatingRhinos.Profiler.Appender.NHibernate.NHibernateProfiler.Initialize();
             return session;
         }
     }

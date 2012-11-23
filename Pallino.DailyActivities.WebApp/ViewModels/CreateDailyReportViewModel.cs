@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Pallino.DailyActivities.WebApp.ViewModels
 {
-    public class CreateDailyActivityViewModel
+    public class CreateDailyReportViewModel
     {
         [Display(Name="Data del rapportino")]
         public DateTime Date { get; set; }

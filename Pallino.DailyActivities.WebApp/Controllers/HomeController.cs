@@ -9,10 +9,10 @@ using Pallino.DailyActivities.WebApp.ViewModels;
 
 namespace Pallino.DailyActivities.WebApp.Controllers
 {
-    public class DailyActivitiesController : Controller
+    public class DailyReportsController : Controller
     {
         ISession session;
-        public DailyActivitiesController(ISession session)
+        public DailyReportsController(ISession session)
         {
             this.session = session;
         }
@@ -22,7 +22,7 @@ namespace Pallino.DailyActivities.WebApp.Controllers
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
 
             var activities = this.session
-                .QueryOver<DailyActivity>()
+                .QueryOver<DailyReport>()
                 .List();
 
             return View(activities);
@@ -34,11 +34,11 @@ namespace Pallino.DailyActivities.WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(CreateDailyActivityViewModel dailyActivity)
+        public ActionResult Create(CreateDailyReportViewModel dailyActivity)
         {
             if (ModelState.IsValid)
             {
-                var activity = new DailyActivity
+                var activity = new DailyReport
                 {
                     Date = dailyActivity.Date
                 };

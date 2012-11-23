@@ -14,7 +14,7 @@ using SharpTestsEx;
 namespace Pallino.DailyActivities.Tests
 {
     [TestFixture]
-    public class StartingWithNoActivities
+    public class ManageCustomerTests
     {
         ISession session;
 
@@ -32,36 +32,31 @@ namespace Pallino.DailyActivities.Tests
         }
 
         [Test]
-        public void EnteringTheSite_IShouldSeeAnEmptyList()
+        public void AccessingTheCustomerManagment_ShowsTheListOfCustomers()
         {
-            var controller = new DailyReportsController(this.session);
+            var controller = new CustomersController(this.session);
 
             var result = controller.Index();
 
-            var viewResult = result as ViewResult;
-            var model = viewResult.Model as IEnumerable<DailyReport>;
-
+            var viewResult = (ViewResult)result;
+            var model = viewResult.Model as IEnumerable<Customer>;
             model.Should().Not.Be.Null();
-            model.Should().Have.Count.EqualTo(0);
         }
 
         [Test]
-        public void CreatingANewActivity_ShowsAListWithOneActivity()
+        public void CreatingANewCustomer_AddsItToTheDb()
         {
-            var controller = new DailyReportsController(this.session);
+            var controller = new CustomersController(this.session);
 
-            var dailyActivity = new CreateDailyReportViewModel
-                {
-                    Date = DateTime.Today
-                };
-            var result = controller.Create(dailyActivity);
+            var viewModel = new CreateCustomerViewModel { Name = "Pippo", VATNumber="12345678901" };
+            
+            var result = controller.Create(viewModel);
 
             var redirectResult = result as RedirectToRouteResult;
             var action = redirectResult.RouteValues["action"];
 
-            var reportOnDb = this.session.Get<DailyReport>(1);
+            var reportOnDb = this.session.Get<Customer>(1);
             reportOnDb.Should().Not.Be.Null();
-            reportOnDb.Date.Should().Be.EqualTo(DateTime.Today);
         }
     }
 }
