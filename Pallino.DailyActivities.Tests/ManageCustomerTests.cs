@@ -22,13 +22,18 @@ namespace Pallino.DailyActivities.Tests
         public void Setup()
         {
             this.session = NHHelper.GetInMemorySession();
+            this.session.Transaction.Begin();
         }
 
         [TearDown]
         public void TearDown()
         {
             if (this.session != null && session.IsOpen)
+            {
+                this.session.Transaction.Commit();
+                this.session.Transaction.Dispose();
                 this.session.Dispose();
+            }
         }
 
         [Test]
@@ -48,7 +53,7 @@ namespace Pallino.DailyActivities.Tests
         {
             var controller = new CustomersController(this.session);
 
-            var viewModel = new CreateCustomerViewModel { Name = "Pippo", VATNumber="12345678901" };
+            var viewModel = new CreateOrEditCustomerViewModel { Name = "Pippo", VATNumber="12345678901" };
             
             var result = controller.Create(viewModel);
 
@@ -57,6 +62,39 @@ namespace Pallino.DailyActivities.Tests
 
             var reportOnDb = this.session.Get<Customer>(1);
             reportOnDb.Should().Not.Be.Null();
+        }
+
+        [Test]
+        public void UpdatingACustomer_ChangesItsDataOnDb()
+        {
+            this.session.Save(new Customer { Name = "Pippo", VATNumber = "12345678901" });
+            var controller = new CustomersController(this.session);
+            var newName = "Mario";
+            var newVat = "12345678902";
+            var updatedCustomer = new CreateOrEditCustomerViewModel {Name = newName, VATNumber = newVat};
+
+            var result = controller.Edit(1,updatedCustomer);
+
+            var customerOnDb = this.session.Get<Customer>(1);
+            customerOnDb.Should().Not.Be.Null();
+            customerOnDb.Name.Should().Be.EqualTo(newName);
+            customerOnDb.VATNumber.Should().Be.EqualTo(newVat);
+        }
+
+
+        [Test]
+        public void DeletingACustomer_RemovesItFromDb()
+        {
+            this.session.Save(new Customer { Name = "Pippo", VATNumber = "12345678901" });
+            var controller = new CustomersController(this.session);
+
+            var result = controller.Delete(1, new FormCollection());
+
+            //var customerOnDb = this.session.Get<Customer>(1);
+            //customerOnDb.Should().Be.Null();
+
+            var customers = this.session.QueryOver<Customer>().List();
+            customers.Should().Have.Count.EqualTo(0);
         }
     }
 }
