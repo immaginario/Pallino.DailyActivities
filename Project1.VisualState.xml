@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1000]C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit</TopNode>
+  <SelectedNode>[0-1005]Pallino.DailyActivities.BrowserTests.ManageCustomersTests.CanAddACustomer</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1000]C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit" Expanded="true" />
+    <Node UniqueName="[0-1006]C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\bin\Debug\Pallino.DailyActivities.BrowserTests.dll" Expanded="true" />
+    <Node UniqueName="[0-1007]Pallino" Expanded="true" />
+    <Node UniqueName="[0-1008]Pallino.DailyActivities" Expanded="true" />
+    <Node UniqueName="[0-1009]Pallino.DailyActivities.BrowserTests" Expanded="true" />
+    <Node UniqueName="[0-1001]Pallino.DailyActivities.BrowserTests.HomePageTests" Expanded="true" />
+    <Node UniqueName="[0-1004]Pallino.DailyActivities.BrowserTests.ManageCustomersTests" Expanded="true" />
+  </Nodes>
+</VisualState>
