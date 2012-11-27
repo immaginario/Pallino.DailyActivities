@@ -106,7 +106,8 @@
     <Compile Include="App_Start\NHibernateProfilerBootstrapper.cs" />
     <Compile Include="ManageCustomerTests.cs" />
     <Compile Include="NHHelper.cs" />
-    <Compile Include="StartingWithNoActivities.cs" />
+    <Compile Include="SchemaTests.cs" />
+    <Compile Include="StartingWithNoActivitiesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

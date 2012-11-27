@@ -64,6 +64,23 @@ namespace Pallino.DailyActivities.Tests
             reportOnDb.Should().Not.Be.Null();
         }
 
+
+        [Test]
+        [Description("Creating a customer with a vat number already present on the db is not allowed")]
+        public void CreatingACustomerTwoTimes_IsNotAllowed()
+        {
+            this.session.Save(new Customer { Name = "Pippo", VATNumber = "12345678901" });
+            var controller = new CustomersController(this.session);
+            var viewModel = new CreateOrEditCustomerViewModel { Name = "Pippo", VATNumber = "12345678901" };
+
+            var result = controller.Create(viewModel);
+
+            var viewResult = result as ViewResult;
+            viewResult.Should().Not.Be.Null();
+            var error = viewResult.ViewData.ModelState["VATNumber"].Errors[0];
+            Assert.AreEqual("Un cliente con stessa partita Iva è già presente.", error.ErrorMessage);
+        }
+
         [Test]
         public void UpdatingACustomer_ChangesItsDataOnDb()
         {

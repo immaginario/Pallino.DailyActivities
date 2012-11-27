@@ -6,10 +6,13 @@ using System.Web.Mvc;
 using AutoMapper;
 using NHibernate;
 using Pallino.DailyActivities.Model;
+using Pallino.DailyActivities.WebApp.Filters;
+using Pallino.DailyActivities.WebApp.Helpers;
 using Pallino.DailyActivities.WebApp.ViewModels;
 
 namespace Pallino.DailyActivities.WebApp.Controllers
 {
+    [Transaction]
     public class CustomersController : Controller
     {
         ISession session;
@@ -32,6 +35,12 @@ namespace Pallino.DailyActivities.WebApp.Controllers
         [HttpPost]
         public ActionResult Create(CreateOrEditCustomerViewModel newCustomer)
         {
+            var existing = this.session.QueryOver<Customer>()
+                .Where(x => x.VATNumber == newCustomer.VATNumber)
+                .SingleOrDefault();
+            if (existing != null)
+                ModelState.AddModelError("VATNumber", "Un cliente con stessa partita Iva è già presente.");
+
             if (ModelState.IsValid)
             {
                 var customer = new Customer { Name = newCustomer.Name, VATNumber = newCustomer.VATNumber };

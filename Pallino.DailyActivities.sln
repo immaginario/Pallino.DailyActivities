@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{61CF28
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pallino.DailyActivities.Model", "Pallino.DailyActivities.Model\Pallino.DailyActivities.Model.csproj", "{57C3ABF1-E71D-4154-B635-C001A2246EAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pallino.DailyActivities.BrowserTests", "Pallino.DailyActivities.BrowserTests\Pallino.DailyActivities.BrowserTests.csproj", "{B9CF84A0-E32B-4E48-91A0-5F43358A978A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{57C3ABF1-E71D-4154-B635-C001A2246EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57C3ABF1-E71D-4154-B635-C001A2246EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57C3ABF1-E71D-4154-B635-C001A2246EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9CF84A0-E32B-4E48-91A0-5F43358A978A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9CF84A0-E32B-4E48-91A0-5F43358A978A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9CF84A0-E32B-4E48-91A0-5F43358A978A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9CF84A0-E32B-4E48-91A0-5F43358A978A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
