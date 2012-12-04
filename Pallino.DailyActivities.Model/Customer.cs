@@ -11,5 +11,13 @@ namespace Pallino.DailyActivities.Model
         public virtual int Id { get; set; }
         public virtual string Name { get; set; }
         public virtual string VATNumber { get; set; }
+        public virtual ICollection<DailyReport> DailyReports { get; set; }
+
+        public Customer()
+        {
+            this.Name = string.Empty;
+            this.VATNumber = string.Empty;
+            this.DailyReports = new List<DailyReport>();
+        }
     }
 }

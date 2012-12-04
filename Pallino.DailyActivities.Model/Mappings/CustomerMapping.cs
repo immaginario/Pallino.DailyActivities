@@ -15,6 +15,7 @@ namespace Pallino.DailyActivities.Model.Mappings
             Id(x => x.Id);
             Map(x => x.Name).Not.Nullable().Length(255);
             Map(x => x.VATNumber).Not.Nullable().Length(13);
+            HasMany(x => x.DailyReports).Inverse().Cascade.All().Not.LazyLoad();
         }
     }
 }

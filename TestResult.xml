@@ -1,29 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit" total="1" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-11-26" time="23:35:44">
+<test-results name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2012-11-27" time="12:16:43">
   <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="GIORGIO-VAIO" user="Giorgio" user-domain="GIORGIO-VAIO" />
   <culture-info current-culture="it-IT" current-uiculture="en-US" />
-  <test-suite type="Project" name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit" executed="True" result="Failure" success="False" time="55.307" asserts="0">
+  <test-suite type="Project" name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Project1.nunit" executed="True" result="Success" success="True" time="65.036" asserts="0">
     <results>
-      <test-suite type="Assembly" name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\bin\Debug\Pallino.DailyActivities.BrowserTests.dll" executed="True" result="Failure" success="False" time="55.307" asserts="0">
+      <test-suite type="Assembly" name="C:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\bin\Debug\Pallino.DailyActivities.BrowserTests.dll" executed="True" result="Success" success="True" time="65.012" asserts="0">
         <results>
-          <test-suite type="Namespace" name="Pallino" executed="True" result="Failure" success="False" time="55.306" asserts="0">
+          <test-suite type="Namespace" name="Pallino" executed="True" result="Success" success="True" time="65.012" asserts="0">
             <results>
-              <test-suite type="Namespace" name="DailyActivities" executed="True" result="Failure" success="False" time="55.305" asserts="0">
+              <test-suite type="Namespace" name="DailyActivities" executed="True" result="Success" success="True" time="65.011" asserts="0">
                 <results>
-                  <test-suite type="Namespace" name="BrowserTests" executed="True" result="Failure" success="False" time="55.305" asserts="0">
+                  <test-suite type="Namespace" name="BrowserTests" executed="True" result="Success" success="True" time="65.011" asserts="0">
                     <results>
-                      <test-suite type="TestFixture" name="ManageCustomersTests" executed="True" result="Failure" success="False" time="55.304" asserts="0">
+                      <test-suite type="TestFixture" name="HomePageTests" executed="True" result="Success" success="True" time="65.009" asserts="0">
                         <results>
-                          <test-case name="Pallino.DailyActivities.BrowserTests.ManageCustomersTests.CanAddACustomer" executed="True" result="Error" success="False" time="11.893" asserts="0">
-                            <failure>
-                              <message><![CDATA[System.ArgumentException : This is not the customer list page: Nuovo cliente]]></message>
-                              <stack-trace><![CDATA[at Pallino.DailyActivities.BrowserTests.Pages.CustomerListPage..ctor(IWebDriver driver) in c:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\Pages\CustomerListPage.cs:line 22
-at Pallino.DailyActivities.BrowserTests.Pages.CreateCustomerPage.CreateCustomer(String name, String vat) in c:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\Pages\CreateCustomerPage.cs:line 33
-at Pallino.DailyActivities.BrowserTests.ManageCustomersTests.CanAddACustomer() in c:\Users\Giorgio\Documents\Visual Studio 2012\Projects\Tests\Pallino.DailyActivities\Pallino.DailyActivities.BrowserTests\ManageCustomersTests.cs:line 37
-]]></stack-trace>
-                            </failure>
-                          </test-case>
+                          <test-case name="Pallino.DailyActivities.BrowserTests.HomePageTests.CanAccessHomePage" executed="True" result="Success" success="True" time="1.997" asserts="1" />
                         </results>
                       </test-suite>
                     </results>

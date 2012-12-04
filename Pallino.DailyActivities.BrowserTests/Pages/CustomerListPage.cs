@@ -28,12 +28,12 @@ namespace Pallino.DailyActivities.BrowserTests.Pages
             return page;
         }
 
-        public bool ContainsCustomerRow(string surname)
+        public bool ContainsCustomerRow(string customerName)
         {
             var result = false;
             var customers = driver.FindElements(By.XPath(@"//*[@id=""body""]/section/table/tbody/tr/td[1]"));
 
-            result = customers.Any(x =>x.Text == surname);
+            result = customers.Any(x =>x.Text == customerName);
             return result;
         }
 

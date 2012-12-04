@@ -37,6 +37,7 @@ namespace Pallino.DailyActivities.Tests
         }
 
         [Test]
+        [Description("Accessing The CustomerManagment Shows The List Of Customers")]
         public void AccessingTheCustomerManagment_ShowsTheListOfCustomers()
         {
             var controller = new CustomersController(this.session);

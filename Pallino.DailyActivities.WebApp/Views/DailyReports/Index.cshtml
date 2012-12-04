@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Pallino.DailyActivities.Model.DailyReport>
+﻿@model IEnumerable<Pallino.DailyActivities.WebApp.ViewModels.DailyReportListItemViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -14,6 +14,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Offsite)
+        </th>
         <th></th>
     </tr>
 
@@ -21,6 +27,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Offsite)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

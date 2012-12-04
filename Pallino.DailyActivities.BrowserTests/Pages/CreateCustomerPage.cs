@@ -25,13 +25,25 @@ namespace Pallino.DailyActivities.BrowserTests.Pages
             }
         }
 
-        public CustomerListPage CreateCustomer(string name, string vat)
+        public Page CreateCustomer(string name, string vat)
         {
             Name.SendKeys(name);
             VATNumber.SendKeys(vat);
             SubmitBtn.Click();
+            if (driver.Title == "")
+                return this;
             var page = new CustomerListPage(driver);
             return page;
+        }
+
+
+        public bool ContainsVatRegExValidation()
+        {
+            var result = false;
+            var customers = driver.FindElements(By.XPath(@"//span[@class='field-validation-error']/span"));
+
+            result = customers.Any(x => x.Text == "La partita IVA non è formalmente valida.");
+            return result;
         }
     }
 }

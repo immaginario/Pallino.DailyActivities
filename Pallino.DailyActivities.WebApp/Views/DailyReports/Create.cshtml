@@ -1,0 +1,90 @@
+﻿@model Pallino.DailyActivities.WebApp.ViewModels.DailyReportViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DailyReportViewModel</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CustomerId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(x => x.CustomerId, (SelectList)ViewBag.SelectCustomerList)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MorningStart)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MorningStart)
+            @Html.ValidationMessageFor(model => model.MorningStart)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MorningEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MorningEnd)
+            @Html.ValidationMessageFor(model => model.MorningEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AfternoonStart)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AfternoonStart)
+            @Html.ValidationMessageFor(model => model.AfternoonStart)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AfternoonEnd)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.AfternoonEnd)
+            @Html.ValidationMessageFor(model => model.AfternoonEnd)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Offsite)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Offsite)
+            @Html.ValidationMessageFor(model => model.Offsite)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Notes)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Notes)
+            @Html.ValidationMessageFor(model => model.Notes)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

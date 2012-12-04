@@ -19,33 +19,51 @@ namespace Pallino.DailyActivities.WebApp.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
             var activities = this.session
                 .QueryOver<DailyReport>()
                 .List();
 
-            return View(activities);
+            var vmList =
+                AutoMapper.Mapper
+                .Map<IEnumerable<DailyReport>, IEnumerable<DailyReportListItemViewModel>>(activities);
+
+            //vmList = new List<DailyReportListItemViewModel> {new DailyReportListItemViewModel()};
+
+            return View(vmList);
         }
 
         public ActionResult Create()
         {
-            return View();
+            var customerList = this.session.QueryOver<Customer>()
+                           .OrderBy(x => x.Name)
+                           .Asc
+                           .List();
+            ViewBag.SelectCustomerList = new SelectList(customerList, "Id", "Name");
+            var model = new DailyReportViewModel();
+            return View(model);
         }
 
         [HttpPost]
-        public ActionResult Create(CreateDailyReportViewModel dailyActivity)
+        public ActionResult Create(DailyReportViewModel dailyReportViewModel)
         {
             if (ModelState.IsValid)
             {
-                var activity = new DailyReport
+                var customer = this.session.Load<Customer>(dailyReportViewModel.CustomerId);
+                var dailyReport = new DailyReport
                 {
-                    Date = dailyActivity.Date
+                    Customer = customer,
+                    Date = dailyReportViewModel.Date,
+                    AfternoonEnd = dailyReportViewModel.AfternoonEnd,
+                    AfternoonStart = dailyReportViewModel.AfternoonStart,
+                    MorningEnd = dailyReportViewModel.MorningEnd,
+                    MorningStart = dailyReportViewModel.MorningStart,
+                    Notes = dailyReportViewModel.Notes,
+                    Offsite = dailyReportViewModel.Offsite
                 };
-                this.session.Save(activity);
+                this.session.Save(dailyReport);
                 return RedirectToAction("Index");
             }
-            return View(dailyActivity);
+            return View(dailyReportViewModel);
         }
 
         public ActionResult About()

@@ -9,6 +9,7 @@ namespace Pallino.DailyActivities.WebApp.ViewModels
     public class CreateDailyReportViewModel
     {
         [Display(Name="Data del rapportino")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
     }
 }

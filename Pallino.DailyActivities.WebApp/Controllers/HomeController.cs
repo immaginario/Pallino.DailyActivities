@@ -13,6 +13,8 @@ namespace Pallino.DailyActivities.WebApp.Controllers
 
         public ActionResult Index()
         {
+            ModelState.AddModelError("Name", "Il nome fa pena.");
+
             return View();
         }
 

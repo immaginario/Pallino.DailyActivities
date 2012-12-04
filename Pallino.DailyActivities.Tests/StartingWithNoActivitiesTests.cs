@@ -39,29 +39,11 @@ namespace Pallino.DailyActivities.Tests
             var result = controller.Index();
 
             var viewResult = result as ViewResult;
-            var model = viewResult.Model as IEnumerable<DailyReport>;
+            var model = viewResult.Model as IEnumerable<DailyReportListItemViewModel>;
 
             model.Should().Not.Be.Null();
             model.Should().Have.Count.EqualTo(0);
         }
 
-        [Test]
-        public void CreatingANewActivity_ShowsAListWithOneActivity()
-        {
-            var controller = new DailyReportsController(this.session);
-
-            var dailyActivity = new CreateDailyReportViewModel
-                {
-                    Date = DateTime.Today
-                };
-            var result = controller.Create(dailyActivity);
-
-            var redirectResult = result as RedirectToRouteResult;
-            var action = redirectResult.RouteValues["action"];
-
-            var reportOnDb = this.session.Get<DailyReport>(1);
-            reportOnDb.Should().Not.Be.Null();
-            reportOnDb.Date.Should().Be.EqualTo(DateTime.Today);
-        }
     }
 }
