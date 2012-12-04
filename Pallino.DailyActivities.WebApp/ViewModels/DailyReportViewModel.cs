@@ -10,6 +10,7 @@ namespace Pallino.DailyActivities.WebApp.ViewModels
     {
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+        [Display(Name="Cliente")]
         public int CustomerId { get; set; }
         public string MorningStart { get; set; }
         public string MorningEnd { get; set; }
