@@ -196,6 +196,7 @@
     <Compile Include="Helpers\NHHelper.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ActivityViewModel.cs" />
     <Compile Include="ViewModels\CreateOrEditCustomerViewModel.cs" />
     <Compile Include="ViewModels\CreateDailyReportViewModel.cs" />
     <Compile Include="ViewModels\DailyReportListItemViewModel.cs" />
@@ -317,6 +318,11 @@
     <Content Include="Views\DailyReports\Index.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <Content Include="Views\DailyReports\Create.cshtml" />
+    <Content Include="Views\DailyReports\Edit.cshtml" />
+    <Content Include="Views\DailyReports\Details.cshtml" />
+    <Content Include="Views\DailyReports\ManageReport.cshtml" />
+    <Content Include="Views\DailyReports\DailyReportHeaderPartial.cshtml" />
+    <Content Include="Views\DailyReports\ActivitesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

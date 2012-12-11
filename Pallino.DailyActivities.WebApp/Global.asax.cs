@@ -47,6 +47,7 @@ namespace Pallino.DailyActivities.WebApp
 
             Mapper.CreateMap<Customer, CreateOrEditCustomerViewModel>();
             Mapper.CreateMap<DailyReport, DailyReportListItemViewModel>();
+            Mapper.CreateMap<DailyReport, DailyReportViewModel>();
             
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

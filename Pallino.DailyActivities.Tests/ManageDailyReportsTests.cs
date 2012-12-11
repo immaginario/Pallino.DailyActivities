@@ -100,5 +100,40 @@ namespace Pallino.DailyActivities.Tests
             reportOnDb.Customer.Name.Should().Be.EqualTo(customerName);
             reportOnDb.Date.Should().Be.EqualTo(reportDate);
         }
+
+        [Test]
+        public void AddingANewActvity_PutsItInTheDb()
+        {
+            var controller = new DailyReportsController(this.session);
+            string customerName = "Pippo1";
+            var customer = new Customer {Name = customerName, VATNumber = "12345678901"};
+            this.session.Save(customer);
+            var dailyReport = new DailyReport
+                {
+                    Customer = customer,
+                    MorningStart = "09:00",
+                    MorningEnd = "13:00",
+                    AfternoonStart = "14:00",
+                    AfternoonEnd = "18:00",
+                    Date = new DateTime(2012,12,11)
+                };
+            this.session.Save(dailyReport);
+
+            var result = controller.ManageReport(1, new ActivityViewModel
+                {
+                    Description = "Corso Asp.Net Mvc",
+                    Hours = 4m
+                });
+
+            this.session.Flush();
+            
+            var redirectResult = result as RedirectToRouteResult;
+            var action = redirectResult.RouteValues["action"];
+            action.Should().Be.EqualTo("ManageReport");
+
+
+            var activityOnDb = this.session.Get<Activity>(1);
+            activityOnDb.Should().Not.Be.Null();
+        }
     }
 }

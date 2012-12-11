@@ -22,6 +22,7 @@ namespace Pallino.DailyActivities.Model.Mappings
             Map(x => x.Offsite).Not.Nullable();
             References(x => x.Customer).Not.Nullable()
                 .ForeignKey("FK_DailyReports_Customers");
+            HasMany(x => x.Activities).Inverse().Cascade.All();
         }
     }
 }

@@ -35,8 +35,8 @@
             @Html.DisplayFor(modelItem => item.Offsite)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Edit header", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Manage", "ManageReport", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
